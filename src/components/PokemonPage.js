@@ -18,11 +18,15 @@ function PokemonPage() {
 
   const filteredPokemon = pokeData.filter((pokemon) => pokemon.name.toLowerCase().includes(searchTerm))
 
+  function handleAddPokemon(newPokeData) {
+    setPokeData([...pokeData, newPokeData])
+  }
+
   return (
     <Container>
       <h1>Pokemon Searcher</h1>
       <br />
-      <PokemonForm />
+      <PokemonForm onAddPokemon={handleAddPokemon}/>
       <br />
       <Search onSearch={setSearchTerm} searchTerm={searchTerm}/>
       <br />
